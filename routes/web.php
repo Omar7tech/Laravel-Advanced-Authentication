@@ -19,5 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [RegisterController::class, "index"]);
-Route::get('/login', [LoginController::class, "index"]);
+//registration
+Route::get('/register', [RegisterController::class, "index"])->name("register");
+Route::post('/register', [RegisterController::class, "create"])->name("register.submit");
+
+//login
+Route::get('/login', [LoginController::class, "index"])->name("login");
