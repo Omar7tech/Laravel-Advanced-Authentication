@@ -1,8 +1,6 @@
-
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Omar7Tech</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,32 +8,40 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
 
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
+                            href="/">Home</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
-                        href="/">Home</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="/login">Login</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="/login">Login</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('register') ? 'active' : '' }}" href="/register">Register</a>
+                    </li>
+                @endguest
 
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('register') ? 'active' : '' }}" href="/register">Register</a>
-                </li>
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Settings
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                @endauth
 
 
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li> --}}
             </ul>
             <div class="ms-auto">
                 <button id="mode-toggle-btn" class="btn btn-outline-dark btn-sm">Dark Mode</button>
