@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function create(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        $this->validateRequest($credentials);
+        $this->validateRequest($credentials); 
 
         try {
             if (Auth::attempt($credentials)) {
